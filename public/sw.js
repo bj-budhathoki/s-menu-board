@@ -24,7 +24,7 @@ self.addEventListener('fetch', function (event) {
             .then(function (res) {
                 return caches.open(STATIC_CACHE_NAME)
                     .then(function (cache) {
-                        cache.put(event.request.url, res.clone());
+                        cache.put(event.request, res.clone());
                         return res;
                     })
             })
